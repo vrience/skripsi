@@ -20,7 +20,13 @@ class Data_barang extends CI_Controller{
         $this->load->view('admin/data_barang', $data);
         $this->load->view('templates_admin/footer');
     }
-
+    public function tambah_barang(){
+       
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('admin/tambah_barang');
+        $this->load->view('templates_admin/footer');
+    }
     public function tambah_aksi(){
         $nama_brg = $this->input->post('nama_brg');
         $keterangan = $this->input->post('keterangan');
