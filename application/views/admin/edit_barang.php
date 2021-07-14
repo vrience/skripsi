@@ -5,12 +5,14 @@
             <div class="form-group">
                 <label>Nama Barang</label>
                 <input type="text" name="nama_brg" class="form-control" value="<?php echo $brg->nama_brg ?>">
+                <?php echo form_error('nama_brg', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
             </div>
 
             <div class="form-group">
                 <label>Keterangan</label>
                 <input type="hidden" name="id_brg" class="form-control" value="<?php echo $brg->id_brg ?>">
                 <input type="text" name="keterangan" class="form-control" value="<?php echo $brg->keterangan ?>">
+                <?php echo form_error('keterangan', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
             </div>
 
             <div class="form-group">
@@ -31,18 +33,20 @@
             <div class="for-group">
                 <label>Harga</label>
                 <input type="text" name="harga" class="form-control" value="<?php echo $brg->harga ?>">
+                <?php echo form_error('harga', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
             </div>
 
             <div class="for-group">
                 <label>Stok</label>
                 <input type="text" name="stok" class="form-control" value="<?php echo $brg->stok ?>">
+                <?php echo form_error('stok', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
             </div>
 
             <div class="for-group">
                 <label>Warna</label>
                 <input type="text" name="warna" class="form-control" value="<?php echo $brg->warna ?>">
             </div>
-            
+
             <div class="form-group">
                 <label>Nilai Kenyamanan</label>
                 <select class="form-control" name="r_kenyamanan">
@@ -88,13 +92,14 @@
                     <option>9</option>
                 </select>
             </div>
-
             <br>
-            <?php echo anchor(
-                'admin/data_barang/',
-                '<div class="btn btn-sm btn-dark text-light">Kembali</div>'
-            ) ?>
-            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+            <div class="modal-footer">
+                <?php echo anchor(
+                    'admin/data_barang/',
+                    '<div class="btn btn-dark text-light">Kembali</div>'
+                ) ?>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
         </form>
     <?php endforeach; ?>
 </div>

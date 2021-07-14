@@ -5,10 +5,12 @@
 <div class="form-group">
     <label>Nama Barang</label>
     <input type="text" name="nama_brg" class="form-control" placeholder="Nama Barang">
+    <?php echo form_error('nama_brg', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
 </div>
 <div class="form-group">
     <label>Keterangan</label>
     <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
+    <?php echo form_error('keterangan', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
 </div>
 <div class="form-group">
     <label>Kategori</label>
@@ -26,10 +28,12 @@
 <div class="form-group">
     <label>Harga</label>
     <input type="text" name="harga" class="form-control" placeholder="Harga Barang">
+    <?php echo form_error('harga', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
 </div>
 <div class="form-group">
     <label>Stok</label>
     <input type="text" name="stok" class="form-control" placeholder="Jumlah Stok">
+    <?php echo form_error('stok', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
 </div>
 <div class="form-group">
     <label>Warna</label>
@@ -93,7 +97,10 @@
 
 </div>
 <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<?php echo anchor(
+                'admin/data_barang/',
+                '<div class="btn btn-dark text-light">Kembali</div>'
+            ) ?>
 <button type="submit" class="btn btn-success">Save</button>
 </div>
 </form>
