@@ -28,6 +28,9 @@ class Data_barang extends CI_Controller{
         $harga = $this->input->post('harga');
         $stok = $this->input->post('stok');
         $warna = $this->input->post('warna');
+        $r_kenyamanan = $this->input->post('r_kenyamanan');
+        $r_harga = $this->input->post('r_harga');
+        $r_formalitas = $this->input->post('r_formalitas');
         $gambar = $_FILES['gambar']['name'];
         if ($gambar=''){}else{
             $config ['upload_path'] = './uploads';
@@ -47,7 +50,10 @@ class Data_barang extends CI_Controller{
             'harga' => $harga,
             'stok' => $stok,
             'warna' => $warna,
-            'gambar' => $gambar
+            'gambar' => $gambar,
+            'r_kenyamanan' => $r_kenyamanan,
+            'r_harga' => $r_harga,
+            'r_formalitas' => $r_formalitas
         );
         $this->model_barang->tambah_barang($data, 'tb_barang');
         redirect('admin/data_barang/index');
@@ -69,6 +75,9 @@ class Data_barang extends CI_Controller{
         $harga = $this->input->post('harga');
         $stok = $this->input->post('stok');
         $warna = $this->input->post('warna');
+        $r_kenyamanan = $this->input->post('r_kenyamanan');
+        $r_harga = $this->input->post('r_harga');
+        $r_formalitas = $this->input->post('r_formalitas');
 
         $data = array(
             'nama_brg' => $nama_brg,
@@ -76,7 +85,10 @@ class Data_barang extends CI_Controller{
             'kategori' => $kategori,
             'harga' => $harga,
             'stok' => $stok,
-            'warna' => $warna
+            'warna' => $warna,
+            'r_kenyamanan' => $r_kenyamanan,
+            'r_harga' => $r_harga,
+            'r_formalitas' => $r_formalitas
         );
         $where = array (
             'id_brg' => $id

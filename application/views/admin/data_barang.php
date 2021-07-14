@@ -10,6 +10,9 @@
             <th>Harga</th>
             <th>Stok</th>
             <th>Warna</th>
+            <th>Nilai Kenyamanan</th>
+            <th>Nilai Harga</th>
+            <th>Nilai Formalitas</th>
             <th colspan="3">Aksi</th>
         </tr>
 
@@ -25,6 +28,9 @@
                 <td>Rp. <?php echo number_format($brg->harga, 0, ',', '.')?></td>
                 <td><?php echo $brg->stok ?></td>
                 <td><?php echo $brg->warna ?></td>
+                <td><?php echo $brg->r_kenyamanan ?></td>
+                <td><?php echo $brg->r_harga ?></td>
+                <td><?php echo $brg->r_formalitas ?></td>
                 <td><?php echo anchor('admin/data_barang/detail/'.$brg->id_brg,
                  '<div class="btn btn-success btn-sm"><i class="fas fa-info-circle"></i></div>')?>
                 </td>
@@ -93,6 +99,48 @@
                             <option>Cream</option>
                             <option>Green</option>
                             <option>Blue</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai Kenyamanan</label>
+                        <select class="form-control" name="r_kenyamanan">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai Harga</label>
+                        <select class="form-control" name="r_harga">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai Formalitas</label>
+                        <select class="form-control" name="r_formalitas">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
                         </select>
                     </div>
                     <div class="form-group">

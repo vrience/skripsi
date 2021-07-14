@@ -42,6 +42,53 @@
                 <label>Warna</label>
                 <input type="text" name="warna" class="form-control" value="<?php echo $brg->warna ?>">
             </div>
+            
+            <div class="form-group">
+                <label>Nilai Kenyamanan</label>
+                <select class="form-control" name="r_kenyamanan">
+                    <option><?php echo $brg->r_kenyamanan ?></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nilai Harga</label>
+                <select class="form-control" name="r_harga">
+                    <option><?php echo $brg->r_harga ?></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nilai Kenyamanan</label>
+                <select class="form-control" name="r_formalitas">
+                    <option><?php echo $brg->r_formalitas ?></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select>
+            </div>
+
             <br>
             <?php echo anchor(
                 'admin/data_barang/',

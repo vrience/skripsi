@@ -11,7 +11,7 @@
                         <table class="table">
                             <tr>
                                 <td>Nama Produk</td>
-                                <td><strong><?php echo $brg->nama_brg ?></strong></td>
+                                <td><h2><strong><?php echo $brg->nama_brg ?></strong><h2></td>
                             </tr>
                             <tr>
                                 <td>Keterangan</td>
@@ -24,6 +24,18 @@
                             <tr>
                                 <td>Stok</td>
                                 <td><strong><?php echo $brg->stok ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Nilai Kenyamanan</td>
+                                <td><strong><?php echo $brg->r_kenyamanan ?></strong> Out Of 9</td>
+                            </tr>
+                            <tr>
+                                <td>Nilai Harga</td>
+                                <td><strong><?php echo $brg->r_harga ?></strong> Out Of 9</td>
+                            </tr>
+                            <tr>
+                                <td>Nilai Formalitas</td>
+                                <td><strong><?php echo $brg->r_formalitas ?></strong> Out Of 9</td>
                             </tr>
                             <tr>
                                 <td>Harga</td>
