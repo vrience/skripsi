@@ -149,8 +149,7 @@
                             <div class="navbar">
                                 <li class="dropdown ">
                                     <div class="dropdown">
-                                    <?php $keranjang = '<i class="btn btn-success btn-sm"> Confuse ?</i> ' ?>
-                                    <?php echo anchor('ahp/tambah_ahp', $keranjang) ?>
+                                        <a class="btn btn-success btn-sm" href="<?php echo base_url('ahp/tambah_ahp') ?>"> Confuse ?</a>
                                     </div>
                                 </li>
                             </div>
