@@ -2,7 +2,7 @@
     <h3><i class="fas fa-edit mr-3"></i>EDIT DATA BARANG</h3>
     <?php foreach ($barang as $brg) : ?>
         <form method="post" action="<?php echo base_url() . 'admin/data_barang/update' ?>">
-            <div class="for-group">
+            <div class="form-group">
                 <label>Nama Barang</label>
                 <input type="text" name="nama_brg" class="form-control" value="<?php echo $brg->nama_brg ?>">
             </div>
