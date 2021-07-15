@@ -49,7 +49,27 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-sm btn-primary mb-3">Pesan</button>
+                    <a href="#modalPesan" data-toggle="modal" onclick="$('#modalPesan #formPesan')">
+                        <div class="btn btn-primary mb-3">Pesan</div>
+                    </a>
+                    <div class="modal fade" id="modalPesan">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title"> Pastikan data yang diberikan sudah benar! </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <form id="formPesan" action="" method="post">
+                                        <button class="btn btn-default" data-dismiss="modal">Tidak</button>
+                                        <button type="submit" class="btn btn-success">Pesan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             <?php
                 } else {
