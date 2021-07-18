@@ -46,7 +46,7 @@
             <!-- Sidebar Message -->
             <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
-                <p class="text-center mb-2"><strong>Laurensclothes.id</strong> memiliki instagram dan marketplace yang lain juga loh!</p>
+                <p class="text-center mb-2"><strong>Lauren's Clothes</strong> memiliki instagram dan marketplace yang lain juga loh!</p>
                 <a class="btn btn-success btn-sm" href="https://linktr.ee/laurensclothes">Visit Us</a>
             </div>
 
