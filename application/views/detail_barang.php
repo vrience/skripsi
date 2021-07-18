@@ -69,6 +69,7 @@
 <!-- Modal -->
 <div class="modal fade" id="modalRating" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+    <form action="<?php echo base_url('ahp/change_rating') ?>" method="post" enctype="multipart/form-data">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Rating Produk</h5>
@@ -77,6 +78,7 @@
                 </button>
             </div>
             <div class="modal-body">
+            <input type="text" class="form-control form-control-user" id="id_barang" hidden placeholder="id_barang" value="<?php echo $id_brg;?>" name="id_barang">
                 <div class="form-group">
                     <label>Nilai Kenyamanan</label>
                     <select class="form-control" name="r_kenyamanan">
@@ -122,8 +124,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
         </div>
+     </form>
     </div>
 </div>

@@ -37,5 +37,155 @@ class Ahp extends CI_Controller
         $this->load->view('form_ahp');
         $this->load->view('templates/footer');
     }
+    public function change_rating()
+    {
+        // $this->form_validation->set_rules('r_kenyamanan', 'Rating Kenyamanan', 'required', [
+        //     'required' => 'Rating Kenyamanan Wajib Diisi!'
+        // ]);
+        // $this->form_validation->set_rules('r_harga', 'Rating Harga', 'required', [
+        //     'required' => 'Rating Harga Wajib Diisi!'
+        // ]);
+        // $this->form_validation->set_rules('r_formalitas', 'Rating Formalitas', 'required', [
+        //     'required' => 'Rating Formalitas Wajib Diisi!',
+        // ]);
+        // if ($this->form_validation->run() == FALSE) {
+        //     $this->load->view('templates_admin/header');
+        //     $this->load->view('templates_admin/sidebar');
+        //     $this->load->view('admin/tambah_barang');
+        //     $this->load->view('templates_admin/footer');
+        // } else {
+            $r_kenyamanan = $this->input->post('r_kenyamanan');
+            $r_harga = $this->input->post('r_harga');
+            $r_formalitas = $this->input->post('r_formalitas');
+            $data_barang = $this->model_barang->detail_brg($this->input->post('id_barang'));
+            $r_kenyamanan_edit = 0;
+            $r_harga_edit = 0;
+            $r_formalitas_edit = 0;
+            foreach ($data_barang as $brg) : 
+                // echo ("DATA KENYAMANAN ".$brg->r_kenyamanan);
+                // echo ("DATA HARGA ".$brg->r_harga);
+                // echo ("DATA FORM ".$brg->r_formalitas);
+                $count_review = $brg->c_review;
+                $r_kenyamanan_edit = ($brg->r_kenyamanan+ $r_kenyamanan)/2;
+                $r_harga_edit = ($brg->r_harga+ $r_harga)/2;
+                $r_formalitas_edit = ($brg->r_formalitas+ $r_formalitas)/2;
+            endforeach;
+            $data = array(
+                'r_kenyamanan' => $r_kenyamanan_edit,
+                'r_harga' => $r_harga_edit,
+                'r_formalitas' => $r_formalitas_edit,
+                'c_review' => ($count_review+1),
+            );
+            $where = array(
+                'id_brg' => $this->input->post('id_barang')
+            );
+            $is_success = $this->model_barang->update_data($where, $data, 'tb_barang');
+            redirect('welcome');
+            // if($is_success){
+            // }else{
+            //     echo  $is_success;
+            // }
+        // }
+    }
+    public function filter_item_by_criteria()
+    {
+        // $this->form_validation->set_rules('r_kenyamanan', 'Rating Kenyamanan', 'required', [
+        //     'required' => 'Rating Kenyamanan Wajib Diisi!'
+        // ]);
+        // $this->form_validation->set_rules('r_harga', 'Rating Harga', 'required', [
+        //     'required' => 'Rating Harga Wajib Diisi!'
+        // ]);
+        // $this->form_validation->set_rules('r_formalitas', 'Rating Formalitas', 'required', [
+        //     'required' => 'Rating Formalitas Wajib Diisi!',
+        // ]);
+        // if ($this->form_validation->run() == FALSE) {
+        //     $this->load->view('templates_admin/header');
+        //     $this->load->view('templates_admin/sidebar');
+        //     $this->load->view('admin/tambah_barang');
+        //     $this->load->view('templates_admin/footer');
+        // } else {
+            $product_1_id = $this->input->post('product_comp_1');
+            $product_2_id = $this->input->post('product_comp_2');
+            $product_3_id = $this->input->post('product_comp_3');
+            $kenyamanan_vs_harga = $this->input->post('kevsha');
+            $formalitas_vs_kenyamanan = $this->input->post('kevsfo');
+            $harga_vs_formalitas = $this->input->post('havsfo');
+            $r_kevsha = $this->input->post('r_kevsha');
+            $r_kevsfo = $this->input->post('r_kevsfo');
+            $r_havsfo = $this->input->post('r_havsfo');
+            //   kenyamanan[0] , harga [1], formalitas[2]
+            $rating_filter = array (
+                array(1,0,0),
+                array(0,1,0),
+                array(0,0,1),
+              );
+            // kenyamanan_vs_harga : kenyamanan (1) harga (2)
+            if($kenyamanan_vs_harga==1){   
+                // if 1, maka kenyamanan menang
+                // echo "kenyamanan ".$rating_filter[0][0];
+                // $rating_filter[0][0] =3; //buat ngubah
+                // echo "kenyamanan ".$rating_filter[0][0];
+                $rating_filter[0][1] =$r_kevsha;
+                $rating_filter[1][0] =1/$r_kevsha;
+                
+                
+            }else{
+                // echo "hraga";
+                $rating_filter[0][1] =1/$r_kevsha;
+                $rating_filter[1][0] =$r_kevsha;
+            }
+            // formalitas_vs_kenyamanan : formal (1) kenyamanan (2)
+            if($formalitas_vs_kenyamanan==1){   
+                $rating_filter[0][2] =$r_kevsfo;
+                $rating_filter[2][0] =1/$r_kevsfo;
+                
+                
+            }else{
+                $rating_filter[0][2] =1/$r_kevsfo;
+                $rating_filter[2][0] =$r_kevsfo;
+            }
+            // harga_vs_formalitas : harga (1) formal (2)
+            if($formalitas_vs_kenyamanan==1){   
+                $rating_filter[1][2] =$r_havsfo;
+                $rating_filter[2][1] =1/$r_havsfo;
+            }else{
+                $rating_filter[1][2] =1/$r_havsfo;
+                $rating_filter[2][1] =$r_havsfo;
+            }
+
+            printf ($rating_filter[0][0]." ".$rating_filter[0][1]." ".$rating_filter[0][2]."\n");
+            printf ($rating_filter[1][0]." ".$rating_filter[1][1]." ".$rating_filter[1][2]."\n");
+            printf ($rating_filter[2][0]." ".$rating_filter[2][1]." ".$rating_filter[2][2]."\n");
+            // $r_formalitas = $this->input->post('r_formalitas');
+            // $data_barang = $this->model_barang->detail_brg($this->input->post('id_barang'));
+            // $r_kenyamanan_edit = 0;
+            // $r_harga_edit = 0;
+            // $r_formalitas_edit = 0;
+            // foreach ($data_barang as $brg) : 
+            //     // echo ("DATA KENYAMANAN ".$brg->r_kenyamanan);
+            //     // echo ("DATA HARGA ".$brg->r_harga);
+            //     // echo ("DATA FORM ".$brg->r_formalitas);
+            //     $count_review = $brg->c_review;
+            //     $r_kenyamanan_edit = ($brg->r_kenyamanan+ $r_kenyamanan)/2;
+            //     $r_harga_edit = ($brg->r_harga+ $r_harga)/2;
+            //     $r_formalitas_edit = ($brg->r_formalitas+ $r_formalitas)/2;
+            // endforeach;
+            // $data = array(
+            //     'r_kenyamanan' => $r_kenyamanan_edit,
+            //     'r_harga' => $r_harga_edit,
+            //     'r_formalitas' => $r_formalitas_edit,
+            //     'c_review' => ($count_review+1),
+            // );
+            // $where = array(
+            //     'id_brg' => $this->input->post('id_barang')
+            // );
+            // $is_success = $this->model_barang->update_data($where, $data, 'tb_barang');
+            // redirect('welcome');
+            // if($is_success){
+            // }else{
+            //     echo  $is_success;
+            // }
+        // }
+    }
 
 }

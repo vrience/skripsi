@@ -30,6 +30,7 @@ class Data_barang extends CI_Controller
         $this->load->view('admin/tambah_barang');
         $this->load->view('templates_admin/footer');
     }
+  
     public function tambah_aksi()
     {
         $this->form_validation->set_rules('nama_brg', 'Nama', 'required', [
