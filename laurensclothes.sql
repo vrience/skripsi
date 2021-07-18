@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Jul 2021 pada 05.17
+-- Waktu pembuatan: 18 Jul 2021 pada 09.10
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.2.34
 
@@ -61,9 +61,9 @@ CREATE TABLE `tb_barang` (
 
 INSERT INTO `tb_barang` (`id_brg`, `nama_brg`, `keterangan`, `kategori`, `harga`, `stok`, `gambar`, `warna`, `r_kenyamanan`, `r_harga`, `r_formalitas`, `c_review`) VALUES
 (1, 'Walter Set', 'LAST RESTOCK!Fabric : Cotton LaceSize Measurements •TopBust : 90cm with zipper on neck sideLength : 45cmSkirtWaist : 65-75cmHighwaisted and Stretchable! Length : 40cm', 'Set', 269000, 13, 'walterset1.jpg', 'White', 5, 3, 5, 1),
-(2, 'Walter Set in Black', 'TopBust : 90cm with zipper on neck sideLength : 45cmSkirtWaist : 65-75cmHighwaisted and Stretchable! Length : 40cm', 'set', 289000, 13, 'waltersetblack.jpg', 'black', 5, 3, 5, 1),
-(3, 'Kaitlyn Cardi in Dusty Pink', 'Kaitlyn Cardi \r\nin Dusty Pink\r\nU can wear this one as a top or as an outer!💕\r\n\r\nSizing Details : \r\nBust 90cm | Length 40cm\r\nFabric : Polyester Knit', 'outer', 199000, 3, 'kaitlyn.jpg', 'pink', 9, 5, 5, 1),
-(4, 'Shierly Crop Shirt', 'Shierly Crop Shirt\r\n\r\nFabric : Chiffon - (Lightweight, Easy)\r\nFit to L\r\nBust 106cm, Length 53cm', 'top', 159000, -1, 'shierly.jpg', 'white', 5, 9, 3, 1),
+(2, 'Walter Set in Black', 'TopBust : 90cm with zipper on neck sideLength : 45cmSkirtWaist : 65-75cmHighwaisted and Stretchable! Length : 40cm', 'set', 289000, 12, 'waltersetblack.jpg', 'black', 5, 3, 5, 1),
+(3, 'Kaitlyn Cardi in Dusty Pink', 'Kaitlyn Cardi \r\nin Dusty Pink\r\nU can wear this one as a top or as an outer!💕\r\n\r\nSizing Details : \r\nBust 90cm | Length 40cm\r\nFabric : Polyester Knit', 'outer', 199000, 1, 'kaitlyn.jpg', 'pink', 9, 5, 5, 1),
+(4, 'Shierly Crop Shirt', 'Shierly Crop ShirtFabric : Chiffon - (Lightweight, Easy)Fit to LBust 106cm, Length 53cm', 'top', 159000, 15, 'shierly.jpg', 'white', 5, 9, 3, 1),
 (5, 'Paula Outer', 'Outer. Premium Cotton.Bust 120cm // Length 90cm', 'Outer', 159000, 4, 'paula.jpg', 'brown', 7, 7, 9, 1),
 (6, 'Emily Dress in Lime', 'Versatile Dress! 4 Ways Wear! \r\n• With Belt\r\n• Without Belt\r\n• As a Top\r\n• As an Outer\r\n\r\nSize Measurements :\r\nBust 90cm | Length 95cm\r\n\r\nFabric : Silk Satin with Extra Lining (Anti Nerawang)', 'dress', 269000, 6, 'emilylime.jpg', 'green', 7, 7, 7, 1),
 (8, 'Frenchie the Corgi Masker', '- Fabric : Cotton with embroidery details\r\n- Color : Cream\r\n- Size : Height 13cm • Width 15cm\r\n- Earloop\r\n- Two ply\r\n- With Filter/Tissue Slot', 'accessories', 32000, 5, 'frenchie.jpg', 'cream', 5, 9, 3, 1),
@@ -83,6 +83,9 @@ CREATE TABLE `tb_invoice` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `alamat` varchar(512) NOT NULL,
+  `no_telp` int(25) NOT NULL,
+  `kurir` varchar(255) NOT NULL,
+  `bank` varchar(255) NOT NULL,
   `tgl_pesan` datetime NOT NULL,
   `batas_bayar` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -91,19 +94,8 @@ CREATE TABLE `tb_invoice` (
 -- Dumping data untuk tabel `tb_invoice`
 --
 
-INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`) VALUES
-(7, 'Juvrience Marcius Lim', 'Harapan Indah', '2021-04-24 16:35:42', '2021-04-25 16:35:42'),
-(8, 'Paula Carmila Liparissa', 'Kelapa Cengkir', '2021-04-24 17:21:25', '2021-04-25 17:21:25'),
-(9, 'Paula Carmila Liparissa', 'Kelapa Cengkir', '2021-04-24 17:30:52', '2021-04-25 17:30:52'),
-(10, 'Juvrience Marcius Lim', 'Harapan Indah', '2021-04-24 21:55:49', '2021-04-25 21:55:49'),
-(11, 'Paula Carmila Liparissa', 'Kelapa Cengkir', '2021-04-25 13:06:02', '2021-04-26 13:06:02'),
-(12, 'Paula Carmila Liparissa', 'Harapan Indah', '2021-04-25 13:06:32', '2021-04-26 13:06:32'),
-(13, 'Juvrience Marcius Lim', 'Harapan Indah', '2021-04-25 13:09:49', '2021-04-26 13:09:49'),
-(14, 'Juvrience Marcius Lim', 'Harapan Indah', '2021-04-25 15:39:40', '2021-04-26 15:39:40'),
-(59, 'paula', 'cengkir', '2021-07-15 16:55:38', '2021-07-16 16:55:38'),
-(60, 'paula', 'cengkir', '2021-07-15 16:57:40', '2021-07-16 16:57:40'),
-(61, 'paula', 'cengkir', '2021-07-15 16:59:54', '2021-07-16 16:59:54'),
-(62, 'paula1', 'revisi', '2021-07-15 17:00:18', '2021-07-16 17:00:18');
+INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `no_telp`, `kurir`, `bank`, `tgl_pesan`, `batas_bayar`) VALUES
+(64, 'test data', 'cengkir', 9876513, 'JNE', 'BCA - 543221', '2021-07-18 13:43:21', '2021-07-19 13:43:21');
 
 -- --------------------------------------------------------
 
@@ -212,7 +204,10 @@ INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_brg`, `nama_brg`, `jumlah`, `h
 (95, 61, 3, 'Kaitlyn Cardi in Dusty Pink', 1, 199000, '', 0),
 (96, 61, 2, 'Walter Set in Black', 1, 289000, '', 0),
 (97, 62, 1, 'Walter Set', 1, 269000, '', 0),
-(98, 62, 2, 'Walter Set in Black', 1, 289000, '', 0);
+(98, 62, 2, 'Walter Set in Black', 1, 289000, '', 0),
+(99, 63, 3, 'Kaitlyn Cardi in Dusty Pink', 1, 199000, '', 0),
+(100, 64, 3, 'Kaitlyn Cardi in Dusty Pink', 1, 199000, '', 0),
+(101, 64, 2, 'Walter Set in Black', 1, 289000, '', 0);
 
 --
 -- Trigger `tb_pesanan`
@@ -304,13 +299,13 @@ ALTER TABLE `tb_barang`
 -- AUTO_INCREMENT untuk tabel `tb_invoice`
 --
 ALTER TABLE `tb_invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
