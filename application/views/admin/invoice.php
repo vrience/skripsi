@@ -6,6 +6,9 @@
             <th>ID Invoice</th>
             <th>Nama Pemesan</th>
             <th>Alamat Pengiriman</th>
+            <th>Nomor Telepon</th>
+            <th>Kurir</th>
+            <th>Pembayaran</th>
             <th>Tanggal Pemesanan</th>
             <th>Batas Pembayaran</th>
             <th>Aksi</th>
@@ -16,6 +19,9 @@
                 <td><?php echo $inv->id ?></td>
                 <td><?php echo $inv->nama ?></td>
                 <td><?php echo $inv->alamat ?></td>
+                <td><?php echo $inv->no_telp ?></td>
+                <td><?php echo $inv->kurir ?></td>
+                <td><?php echo $inv->bank ?></td>
                 <td><?php echo $inv->tgl_pesan ?></td>
                 <td><?php echo $inv->batas_bayar ?></td>
                 <td><?php echo anchor(

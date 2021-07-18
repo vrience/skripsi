@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label>Jasa Pengiriman</label>
-                        <select class="form-control">
+                        <select class="form-control" name="kurir">
                             <option>JNE</option>
                             <option>TIKI</option>
                             <option>POS Indonesia</option>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label>Pilih BANK</label>
-                        <select class="form-control">
+                        <select class="form-control" name="bank">
                             <option>BCA - 543221</option>
                             <option>BNI - 731991</option>
                             <option>BRI - 124813</option>
