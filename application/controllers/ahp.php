@@ -141,7 +141,7 @@ class Ahp extends CI_Controller
                 $rating_filter[2][0] =$r_kevsfo;
             }
             // harga_vs_formalitas : harga (1) formal (2)
-            if($formalitas_vs_kenyamanan==1){   
+            if($harga_vs_formalitas==1){   
                 $rating_filter[1][2] =$r_havsfo;
                 $rating_filter[2][1] =1/$r_havsfo;
             }else{
@@ -200,6 +200,7 @@ class Ahp extends CI_Controller
               // b2,
               // b3
             // kenyamanan 
+            // array 1 barang array 2 kriteria
             if($rating_data_barang[0][0]>$rating_data_barang[1][0]){
                 $rating_filter_barang_kenyamanan[0][1] =$rating_data_barang[0][0];
                 $rating_filter_barang_kenyamanan[1][0] =1/$rating_data_barang[0][0];
@@ -285,17 +286,17 @@ class Ahp extends CI_Controller
             $skor_rekomendasi_barang_1 = 
             (($data_eigen_criteria[0]*$data_eigen_kenyamanan[0])+
             ($data_eigen_criteria[1]*$data_eigen_harga[0])+
-            ($data_eigen_criteria[2]*$data_eigen_harga[0]));
+            ($data_eigen_criteria[2]*$data_eigen_formalitas[0]));
 
             $skor_rekomendasi_barang_2 = 
             (($data_eigen_criteria[0]*$data_eigen_kenyamanan[1])+
             ($data_eigen_criteria[1]*$data_eigen_harga[1])+
-            ($data_eigen_criteria[2]*$data_eigen_harga[1]));
+            ($data_eigen_criteria[2]*$data_eigen_formalitas[1]));
 
             $skor_rekomendasi_barang_3 = 
             (($data_eigen_criteria[0]*$data_eigen_kenyamanan[2])+
             ($data_eigen_criteria[1]*$data_eigen_harga[2])+
-            ($data_eigen_criteria[2]*$data_eigen_harga[2]));
+            ($data_eigen_criteria[2]*$data_eigen_formalitas[2]));
 
             // echo ("DATA: ".($skor_rekomendasi_barang_1+$skor_rekomendasi_barang_2+$skor_rekomendasi_barang_3));
             // echo ("DATA: ".$skor_rekomendasi_barang_1." ".$skor_rekomendasi_barang_2." ".$skor_rekomendasi_barang_3);

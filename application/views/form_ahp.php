@@ -75,7 +75,7 @@
                 <div class="form-group">
                     <label>Produk 1</label>
                     <select class="form-control" name="product_comp_1">
-                        <option value=2>Walter Set</option>
+                        <option value=1>Walter Set</option>
                         <option>TIKI</option>
                         <option>POS Indonesia</option>
                         <option>GOJEK</option>
@@ -85,7 +85,7 @@
                 <div class="form-group">
                     <label>Produk 2</label>
                     <select class="form-control" name="product_comp_2">
-                        <option value=3>Roger Set</option>
+                        <option value=11>Roger Set</option>
                         <option>BNI - 731991</option>
                         <option>BRI - 124813</option>
                         <option>MANDIRI - 342939</option>
@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <label>Produk 3</label>
                     <select class="form-control" name="product_comp_3">
-                        <option value=5>Li Yen Dress</option>
+                        <option value=13>Li Yen Dress</option>
                         <option>BNI - 731991</option>
                         <option>BRI - 124813</option>
                         <option>MANDIRI - 342939</option>
