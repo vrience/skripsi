@@ -11,7 +11,10 @@
                         <table class="table">
                             <tr>
                                 <td>Nama Produk</td>
-                                <td><h2><strong><?php echo $brg->nama_brg ?></strong><h2></td>
+                                <td>
+                                    <h2><strong><?php echo $brg->nama_brg ?></strong>
+                                        <h2>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Keterangan</td>
@@ -47,15 +50,80 @@
                         </table>
                         <?php echo anchor(
                             'welcome',
-                            '<div class="btn btn-sm btn-primary bg-dark text-light">Kembali</div>'
+                            '<div class="btn btn-sm btn-primary bg-light text-dark">Kembali</div>'
                         ) ?>
                         <?php echo anchor(
                             'dashboard/tambah_ke_keranjang/' . $brg->id_brg,
                             '<div class="btn btn-sm btn-primary">Tambah ke Keranjang</div>'
                         ) ?>
+                        <button type="button" class="btn btn-info btn-sm float-right" data-toggle="modal" data-target="#modalRating">
+                            Rating Produk
+                        </button>
                     </div>
                 </div>
             <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalRating" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Rating Produk</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nilai Kenyamanan</label>
+                    <select class="form-control" name="r_kenyamanan">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nilai Harga</label>
+                    <select class="form-control" name="r_harga">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nilai Formalitas</label>
+                    <select class="form-control" name="r_formalitas">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
     </div>
 </div>
