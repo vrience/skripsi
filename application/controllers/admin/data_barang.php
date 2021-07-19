@@ -30,7 +30,7 @@ class Data_barang extends CI_Controller
         $this->load->view('admin/tambah_barang');
         $this->load->view('templates_admin/footer');
     }
-  
+
     public function tambah_aksi()
     {
         $this->form_validation->set_rules('nama_brg', 'Nama', 'required', [
@@ -167,5 +167,15 @@ class Data_barang extends CI_Controller
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/detail_barang_admin', $data);
         $this->load->view('templates_admin/footer');
+    }
+
+    public function search()
+    {
+        $keyword = $this->input->post('keyword');
+        $data['barang'] = $this->model_barang->get_keyword($keyword);
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('welcome', $data);
+        $this->load->view('templates/footer');
     }
 }
