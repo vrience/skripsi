@@ -42,9 +42,18 @@
                 <?php echo form_error('stok', '<div class="text-danger small ml-2 mt-2">', '</div>') ?>
             </div>
 
-            <div class="for-group">
+            <div class="form-group">
                 <label>Warna</label>
-                <input type="text" name="warna" class="form-control" value="<?php echo $brg->warna ?>">
+                <select class="form-control" name="warna">
+                    <option>White</option>
+                    <option>Black</option>
+                    <option>Pink</option>
+                    <option>Red</option>
+                    <option>Brown</option>
+                    <option>Cream</option>
+                    <option>Green</option>
+                    <option>Blue</option>
+                </select>
             </div>
 
             <div class="form-group">

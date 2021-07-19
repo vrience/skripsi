@@ -69,64 +69,67 @@
 <!-- Modal -->
 <div class="modal fade" id="modalRating" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-    <form action="<?php echo base_url('ahp/change_rating') ?>" method="post" enctype="multipart/form-data">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Rating Produk</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-            <input type="text" class="form-control form-control-user" id="id_barang" hidden placeholder="id_barang" value="<?php echo $id_brg;?>" name="id_barang">
-                <div class="form-group">
-                    <label>Nilai Kenyamanan</label>
-                    <select class="form-control" name="r_kenyamanan">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                    </select>
+        <form action="<?php echo base_url('ahp/change_rating') ?>" method="post" enctype="multipart/form-data">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Rating Produk</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group">
-                    <label>Nilai Harga</label>
-                    <select class="form-control" name="r_harga">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                    </select>
+                <div class="modal-body">
+                    <input type="text" class="form-control form-control-user" id="id_barang" hidden placeholder="id_barang" value="<?php echo $id_brg; ?>" name="id_barang">
+                    <div class="form-group">
+                        <label>Nilai Kenyamanan</label>
+                        <select class="form-control" name="r_kenyamanan">
+                            <option>Masukan Nilai Kenyamanan</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai Harga</label>
+                        <select class="form-control" name="r_harga">
+                            <option>Masukan Nilai Harga</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai Formalitas</label>
+                        <select class="form-control" name="r_formalitas">
+                            <option>Masukan Nilai Formalitas</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Nilai Formalitas</label>
-                    <select class="form-control" name="r_formalitas">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                    </select>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-     </form>
+        </form>
     </div>
 </div>
