@@ -17,8 +17,8 @@
                         <th colspan="3">Nilai</th>
                     </tr>
 
-                    <tr align="middle">
-                        <td>1</td>
+                    <tr align="left">
+                        <td align="middle">1</td>
                         <td><input type="radio" checked name="kevsha" value="1"> Kenyamanan</td>
                         <td> <input type="radio" name="kevsha" value="2"> Harga</td>
                         <td>
@@ -34,8 +34,8 @@
                                 <option>9</option>
                         </td>
                     </tr>
-                    <tr align="middle">
-                        <td>2</td>
+                    <tr align="left">
+                        <td align="middle">2</td>
                         <td> <input type="radio" checked name="kevsfo" value="1"> Formalitas</td>
                         <td><input type="radio" name="kevsfo" value="2"> Kenyamanan</td>
                         <td>
@@ -51,8 +51,8 @@
                                 <option>9</option>
                         </td>
                     </tr>
-                    <tr align="middle">
-                        <td>3</td>
+                    <tr align="left">
+                        <td align="middle">3</td>
                         <td><input type="radio" checked name="havsfo" value="1"> Harga</td>
                         <td> <input type="radio" name="havsfo" value="2"> Formalitas</td>
                         <td>

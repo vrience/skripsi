@@ -32,12 +32,13 @@ class Ahp extends CI_Controller
 
     public function tambah_ahp()
     {
-        $data['barang'] = $this->model_barang->tampil_data()->result();
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('form_ahp',$data);
-        $this->load->view('templates/footer');
+            $data['barang'] = $this->model_barang->tampil_data()->result();
+            $this->load->view('templates/header');
+            $this->load->view('templates/sidebar');
+            $this->load->view('form_ahp', $data);
+            $this->load->view('templates/footer');
     }
+    
     public function change_rating()
     {
         // $this->form_validation->set_rules('r_kenyamanan', 'Rating Kenyamanan', 'required|integer', [
