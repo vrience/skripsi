@@ -87,7 +87,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Nilai Kenyamanan</label>
+                <label>Nilai Formalitas</label>
                 <select class="form-control" name="r_formalitas">
                     <option><?php echo $brg->r_formalitas ?></option>
                     <option>1</option>
