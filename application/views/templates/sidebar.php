@@ -87,9 +87,10 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
-                <p class="text-center mb-2"><strong>Lauren's Clothes</strong> memiliki instagram dan marketplace yang lain juga loh!</p>
-                <a class="btn btn-success btn-sm" href="https://linktr.ee/laurensclothes">Visit Us</a>
+                <img class="sidebar-card-illustration" src="img/undraw_rocket.svg" alt="">
+                <h5>Contact Us</h5>
+                <p class="text-center mb-3"><strong>Lauren's Clothes</strong> memiliki Admin yang siap melayani, Instagram dan Marketplace lain juga loh!</p>
+                <a class="btn btn-success btn-sm mb-5" href="https://l.instagram.com/?u=https%3A%2F%2Fmsha.ke%2Flaurensclothes.id&e=ATMz4GZKhOG0xffpmUzWBf5A3AvD5eWF6ezcskblKt6Jd-KLfrdZ2sgMeAfmkhZLZ6duCk3bN-WbQ4RAkibY1A&s=1">Click Here!</a>
             </div>
 
         </ul>
