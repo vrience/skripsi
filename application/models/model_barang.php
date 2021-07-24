@@ -57,6 +57,7 @@ class Model_barang extends CI_Model{
     {
         $array = array(
             'id_brg' => $id_brg, 
+            'is_rated' => 0, 
             'username' => $this->session->userdata('username')
         );
         $result = $this->db->where($array)->get('tb_pesanan');

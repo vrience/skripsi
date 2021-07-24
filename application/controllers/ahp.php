@@ -84,7 +84,18 @@ class Ahp extends CI_Controller
         $where = array(
             'id_brg' => $this->input->post('id_barang')
         );
+      
         $is_success = $this->model_barang->update_data($where, $data, 'tb_barang');
+
+        $where_rating = array(
+            'username' => $this->session->userdata('username'),
+            'id_brg' => $this->input->post('id_barang'),
+        );
+        $data_rating = array(
+            'is_rated' =>1
+        );
+
+        $update_tb_pesanan = $this->model_barang->update_data($where_rating, $data_rating, 'tb_pesanan');
         redirect('welcome');
         //     // if($is_success){
         //     // }else{
