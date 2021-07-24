@@ -56,9 +56,12 @@
                             'dashboard/tambah_ke_keranjang/' . $brg->id_brg,
                             '<div class="btn btn-sm btn-primary">Tambah ke Keranjang</div>'
                         ) ?>
+                        <?php 
+                        if ($item_allow_rating==1) {?>
                         <button type="button" class="btn btn-info btn-sm float-right" data-toggle="modal" data-target="#modalRating">
                             Rating Produk
                         </button>
+                        <?php }?>
                     </div>
                 </div>
             <?php endforeach; ?>

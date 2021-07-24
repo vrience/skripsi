@@ -85,6 +85,7 @@ class Dashboard extends CI_Controller
     {
         $data['barang'] = $this->model_barang->detail_brg($id_brg);
         $data['id_brg'] = $id_brg;
+        $data['item_allow_rating'] = $this->model_barang->get_item_allow_rating($id_brg);
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('detail_barang', $data);

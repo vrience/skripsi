@@ -28,6 +28,7 @@ class Model_invoice extends CI_Model{
                 'nama_brg' => $item['name'],
                 'jumlah' => $item['qty'],
                 'harga' => $item['price'],
+                'username' => $this->session->userdata('username'),
             );
             $this->db->insert('tb_pesanan', $data);
         }

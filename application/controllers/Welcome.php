@@ -32,7 +32,7 @@ class Welcome extends CI_Controller {
 		else
         $data['barang'] = $this->model_barang->tampil_data()->result();
 
-		// echo($keyword);
+		// echo($this->session);
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('dashboard', $data);

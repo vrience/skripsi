@@ -53,6 +53,19 @@ class Model_barang extends CI_Model{
             return false;
         }
     }
+    public function get_item_allow_rating($id_brg)
+    {
+        $array = array(
+            'id_brg' => $id_brg, 
+            'username' => $this->session->userdata('username')
+        );
+        $result = $this->db->where($array)->get('tb_pesanan');
+        if ($result->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function get_keyword($keyword)
     {
