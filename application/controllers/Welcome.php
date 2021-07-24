@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('model_barang');
+        $this->load->model('Model_barang');
     }
 
 	public function index()
