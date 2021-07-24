@@ -26,7 +26,13 @@ class Welcome extends CI_Controller {
 
 	public function index()
     {
+		$keyword = $this->input->get('keyword');
+		if($keyword!=null)
+        $data['barang'] = $this->model_barang->get_keyword($keyword);
+		else
         $data['barang'] = $this->model_barang->tampil_data()->result();
+
+		// echo($keyword);
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('dashboard', $data);

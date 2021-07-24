@@ -58,7 +58,7 @@ class Model_barang extends CI_Model{
     {
         $this->db->select('*');
         $this->db->from('tb_barang');
-        $this->db->like('nama',$keyword);
+        $this->db->like('nama_brg',$keyword);
         $this->db->or_like('kategori',$keyword);
         $this->db->or_like('warna',$keyword);
         return $this->db->get()->result();

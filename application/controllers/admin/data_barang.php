@@ -172,11 +172,13 @@ class Data_barang extends CI_Controller
 
     public function search()
     {
+        // benda ini gak guna
         $keyword = $this->input->post('keyword');
         $data['barang'] = $this->model_barang->get_keyword($keyword);
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('welcome', $data);
-        $this->load->view('templates/footer');
+        // dd($data['barang']);
+        // $this->load->view('templates/header');
+        // $this->load->view('templates/sidebar');
+        // $this->load->view('welcome', $data);
+        // $this->load->view('templates/footer');
     }
 }
