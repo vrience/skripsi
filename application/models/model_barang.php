@@ -1,9 +1,12 @@
 <?php
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Model_barang extends CI_Model
-{
-    public function tampil_data()
+class Model_barang extends CI_Model{
+    public function __construct()
     {
+        parent::__construct();
+    }
+    public function tampil_data(){
         return $this->db->get('tb_barang');
     }
 

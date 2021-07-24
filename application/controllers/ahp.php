@@ -4,6 +4,7 @@ class Ahp extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('model_barang');
         if ($this->session->userdata('role_id') != '2') {
             $this->session->set_flashdata('pesan', '<div class="alert 
             alert-danger alert-dismissible fade show" role="alert">
@@ -13,6 +14,7 @@ class Ahp extends CI_Controller
             </div>');
             redirect('auth/login');
         }
+        
     }
 
     public function tambah_ke_keranjang($id)
