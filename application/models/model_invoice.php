@@ -80,4 +80,10 @@ class Model_invoice extends CI_Model{
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+    public function get_sum(){
+        $sql="SELECT sum(jumlah) as jumlah FROM tb_pesanan";
+        $result = $this->db->query($sql);
+        return $result->row()->jumlah;
+    }
 }
