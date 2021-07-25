@@ -9,8 +9,8 @@
             <th>Nomor Telepon</th>
             <th>Kurir</th>
             <th>Pembayaran</th>
+            <th>Bukti Bayar</th>
             <th>Tanggal Pemesanan</th>
-            <th>Batas Pembayaran</th>
             <th>Aksi</th>
         </tr>
 

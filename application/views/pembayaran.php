@@ -12,7 +12,7 @@
                 ?>
             </div><br><br>
             <h4>Input Alamat Pengiriman dan Pembayaran</h3>
-                <form method="post" action="<?php echo base_url() ?>dashboard/proses_pesanan">
+                <form method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>dashboard/proses_pesanan">
 
                     <div class="form-group">
                         <label>Nama Lengkap</label>
@@ -40,13 +40,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Pilih BANK</label>
+                        <label>Pilih Pembayaran</label>
                         <select class="form-control" name="bank">
-                            <option>BCA - 543221</option>
-                            <option>BNI - 731991</option>
-                            <option>BRI - 124813</option>
-                            <option>MANDIRI - 342939</option>
+                            <option>BCA 5350143884 a.n Laurent Gracia</option>
+                            <option>BCA 581 059 1091 a.n Richelle Erika</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Bukti Pembayaran</label><br>
+                        <input type="file" name="bukti" class="form-control">
                     </div>
 
                     <a href="#modalPesan" data-toggle="modal" onclick="$('#modalPesan #formPesan')">
