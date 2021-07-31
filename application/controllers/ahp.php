@@ -149,7 +149,7 @@ class Ahp extends CI_Controller
             $rating_filter[1][0] = $r_kevsha;
         }
         // formalitas_vs_kenyamanan : formal (1) kenyamanan (2)
-        if ($formalitas_vs_kenyamanan == 1) {
+        if ($formalitas_vs_kenyamanan == 2) {
             $rating_filter[0][2] = $r_kevsfo;
             $rating_filter[2][0] = 1 / $r_kevsfo;
         } else {
@@ -220,64 +220,104 @@ class Ahp extends CI_Controller
         if ($rating_data_barang[0][0] > $rating_data_barang[1][0]) {
             $rating_filter_barang_kenyamanan[0][1] = $rating_data_barang[0][0];
             $rating_filter_barang_kenyamanan[1][0] = 1 / $rating_data_barang[0][0];
-        } else {
+        } 
+        else if ($rating_data_barang[0][0] == $rating_data_barang[1][0]){
+            $rating_filter_barang_kenyamanan[0][1] = 1;
+            $rating_filter_barang_kenyamanan[1][0] = 1;
+        }
+        else{
             $rating_filter_barang_kenyamanan[0][1] = 1 / $rating_data_barang[1][0];
             $rating_filter_barang_kenyamanan[1][0] = $rating_data_barang[1][0];
         }
+
+
         if ($rating_data_barang[0][0] > $rating_data_barang[2][0]) {
             $rating_filter_barang_kenyamanan[0][2] = $rating_data_barang[0][0];
             $rating_filter_barang_kenyamanan[2][0] = 1 / $rating_data_barang[0][0];
+        } else if ($rating_data_barang[0][0]== $rating_data_barang[2][0]) {
+            $rating_filter_barang_kenyamanan[0][2] = 1;
+            $rating_filter_barang_kenyamanan[2][0] = 1;
         } else {
             $rating_filter_barang_kenyamanan[0][2] = 1 / $rating_data_barang[2][0];
             $rating_filter_barang_kenyamanan[2][0] = $rating_data_barang[2][0];
         }
+
+
         if ($rating_data_barang[1][0] > $rating_data_barang[2][0]) {
             $rating_filter_barang_kenyamanan[1][2] = $rating_data_barang[1][0];
             $rating_filter_barang_kenyamanan[2][1] = 1 / $rating_data_barang[1][0];
+        } else if ($rating_data_barang[1][0] == $rating_data_barang[2][0]) {
+            $rating_filter_barang_kenyamanan[1][2] = 1;
+            $rating_filter_barang_kenyamanan[2][1] = 1;
         } else {
             $rating_filter_barang_kenyamanan[1][2] = 1 / $rating_data_barang[2][0];
             $rating_filter_barang_kenyamanan[2][1] = $rating_data_barang[2][0];
         }
+
+        
         // harga
         if ($rating_data_barang[0][1] > $rating_data_barang[1][1]) {
             $rating_filter_barang_harga[0][1] = $rating_data_barang[0][1];
             $rating_filter_barang_harga[1][0] = 1 / $rating_data_barang[0][1];
+        } else if ($rating_data_barang[0][1] == $rating_data_barang[1][1]) {
+            $rating_filter_barang_harga[0][1] = 1;
+            $rating_filter_barang_harga[1][0] = 1;
         } else {
             $rating_filter_barang_harga[0][1] = 1 / $rating_data_barang[1][1];
             $rating_filter_barang_harga[1][0] = $rating_data_barang[1][1];
         }
+
         if ($rating_data_barang[0][1] > $rating_data_barang[2][1]) {
             $rating_filter_barang_harga[0][2] = $rating_data_barang[0][1];
             $rating_filter_barang_harga[2][0] = 1 / $rating_data_barang[0][1];
+        } else if ($rating_data_barang[0][1] == $rating_data_barang[2][1]) {
+            $rating_filter_barang_harga[0][2] = 1;
+            $rating_filter_barang_harga[2][0] = 1;
         } else {
             $rating_filter_barang_harga[0][2] = 1 / $rating_data_barang[2][1];
             $rating_filter_barang_harga[2][0] = $rating_data_barang[2][1];
         }
+
         if ($rating_data_barang[1][1] > $rating_data_barang[2][1]) {
             $rating_filter_barang_harga[1][2] = $rating_data_barang[1][1];
             $rating_filter_barang_harga[2][1] = 1 / $rating_data_barang[1][1];
+        } else  if ($rating_data_barang[1][1] == $rating_data_barang[2][1]) {
+            $rating_filter_barang_harga[1][2] = 1;
+            $rating_filter_barang_harga[2][1] = 1;
         } else {
             $rating_filter_barang_harga[1][2] = 1 / $rating_data_barang[2][1];
             $rating_filter_barang_harga[2][1] = $rating_data_barang[2][1];
         }
+
         // formalitas
         if ($rating_data_barang[0][2] > $rating_data_barang[1][2]) {
             $rating_filter_barang_formalitas[0][1] = $rating_data_barang[0][2];
             $rating_filter_barang_formalitas[1][0] = 1 / $rating_data_barang[0][2];
+        } else  if ($rating_data_barang[0][2] == $rating_data_barang[1][2]) {
+            $rating_filter_barang_formalitas[0][1] = 1;
+            $rating_filter_barang_formalitas[1][0] = 1;
         } else {
             $rating_filter_barang_formalitas[0][1] = 1 / $rating_data_barang[1][2];
             $rating_filter_barang_formalitas[1][0] = $rating_data_barang[1][2];
         }
+
         if ($rating_data_barang[0][2] > $rating_data_barang[2][2]) {
             $rating_filter_barang_formalitas[0][2] = $rating_data_barang[0][2];
             $rating_filter_barang_formalitas[2][0] = 1 / $rating_data_barang[0][2];
+        } else if ($rating_data_barang[0][2] == $rating_data_barang[2][2]) {
+            $rating_filter_barang_formalitas[0][2] = 1;
+            $rating_filter_barang_formalitas[2][0] = 1;
         } else {
             $rating_filter_barang_formalitas[0][2] = 1 / $rating_data_barang[2][2];
             $rating_filter_barang_formalitas[2][0] = $rating_data_barang[2][2];
         }
+
         if ($rating_data_barang[1][2] > $rating_data_barang[2][2]) {
             $rating_filter_barang_formalitas[1][2] = $rating_data_barang[1][2];
             $rating_filter_barang_formalitas[2][1] = 1 / $rating_data_barang[1][2];
+        } else if ($rating_data_barang[1][2] == $rating_data_barang[2][2]) {
+            $rating_filter_barang_formalitas[1][2] = 1;
+            $rating_filter_barang_formalitas[2][1] = 1;
         } else {
             $rating_filter_barang_formalitas[1][2] = 1 / $rating_data_barang[2][2];
             $rating_filter_barang_formalitas[2][1] = $rating_data_barang[2][2];
@@ -314,9 +354,10 @@ class Ahp extends CI_Controller
                 ($data_eigen_criteria[1] * $data_eigen_harga[2]) +
                 ($data_eigen_criteria[2] * $data_eigen_formalitas[2]));
 
-        // echo ("DATA: ".($skor_rekomendasi_barang_1+$skor_rekomendasi_barang_2+$skor_rekomendasi_barang_3));
-        // echo ("DATA: ".$skor_rekomendasi_barang_1." ".$skor_rekomendasi_barang_2." ".$skor_rekomendasi_barang_3);
         $max_score = max($skor_rekomendasi_barang_1, $skor_rekomendasi_barang_2, $skor_rekomendasi_barang_3);
+                // echo ("DATASUM: ".($skor_rekomendasi_barang_1+$skor_rekomendasi_barang_2+$skor_rekomendasi_barang_3));
+                // echo ("DATA: ".$skor_rekomendasi_barang_1." ".$skor_rekomendasi_barang_2." ".$skor_rekomendasi_barang_3);
+                // echo ($max_score);
         $min_score = min($skor_rekomendasi_barang_1, $skor_rekomendasi_barang_2, $skor_rekomendasi_barang_3);
         $middle_score = 1 - ($max_score + $min_score);
         if ($skor_rekomendasi_barang_1 == $max_score) {
