@@ -7,6 +7,19 @@ class Model_invoice extends CI_Model{
         $no_telp = $this->input->post('no_telp');
         $kurir = $this->input->post('kurir');
         $bank = $this->input->post('bank');
+        $bukti = ($_FILES['bukti']['name']);
+        if ($bukti = '') {
+        } else {
+            $config['upload_path'] = './uploads';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('bukti')) {
+                echo "Gambar Gagal di Upload!";
+            } else {
+                $bukti = $this->upload->data('file_name');
+            }
+        }
 
         $invoice = array (
             'nama' => $nama,
@@ -14,6 +27,7 @@ class Model_invoice extends CI_Model{
             'no_telp' => $no_telp,
             'kurir' => $kurir,
             'bank' => $bank,
+            'bukti' => $bukti,
             'tgl_pesan' => date('Y-m-d H:i:s'),
             'batas_bayar' => date('Y-m-d H:i:s', mktime(date('H'),
             date('i'), date('s'), date('m'), date('d') + 1, date('Y')))
@@ -65,5 +79,11 @@ class Model_invoice extends CI_Model{
     public function hapus_data ($where, $table){
         $this->db->where($where);
         $this->db->delete($table);
+    }
+
+    public function get_sum(){
+        $sql="SELECT sum(jumlah) as jumlah FROM tb_pesanan";
+        $result = $this->db->query($sql);
+        return $result->row()->jumlah;
     }
 }

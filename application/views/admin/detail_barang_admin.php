@@ -26,6 +26,18 @@
                                 <td><strong><?php echo $brg->stok ?></strong></td>
                             </tr>
                             <tr>
+                                <td>Nilai Kenyamanan</td>
+                                <td><strong><?php echo $brg->r_kenyamanan ?></strong> Out Of 9</td>
+                            </tr>
+                            <tr>
+                                <td>Nilai Harga</td>
+                                <td><strong><?php echo $brg->r_harga ?></strong> Out Of 9</td>
+                            </tr>
+                            <tr>
+                                <td>Nilai Formalitas</td>
+                                <td><strong><?php echo $brg->r_formalitas ?></strong> Out Of 9</td>
+                            </tr>
+                            <tr>
                                 <td>Harga</td>
                                 <td>
                                     <div class="btn btn-sm btn-success">Rp.
@@ -37,15 +49,34 @@
                             'admin/data_barang/',
                             '<div class="btn btn-sm btn-dark text-light">Kembali</div>'
                         ) ?>
-                        <?php echo anchor(
-                            'admin/data_barang/hapus/' . $brg->id_brg,
-                            '<div class="btn btn-danger btn-sm">Hapus</div>'
-                        ) ?>
+                        <a href="#modalDelete" data-toggle="modal" onclick="$('#modalDelete #formDelete').attr('action', '<?= site_url('admin/data_barang/hapus/' . $brg->id_brg) ?>')" class="btn btn-danger btn-sm">
+                            Hapus
+                        </a>
                         <?php echo anchor(
                             'admin/data_barang/edit/' . $brg->id_brg,
                             '<div class="btn btn-sm btn-primary">Update</div>'
                         ) ?>
 
+                    </div>
+                    <div class="modal fade" id="modalDelete">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <h5 class="modal-title"> Yakin ingin menghapus data barang ini ? </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <form id="formDelete" action="" method="post">
+                                        <button class="btn btn-default" data-dismiss="modal">Tidak</button>
+                                        <button class="btn btn-danger" data-dismiss="submit">Hapus</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>

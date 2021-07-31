@@ -5,8 +5,36 @@
             <div class="btn btn-sm btn-dark">
 
                 <h5>Kami akan membantu anda mendapatkan produk yang paling sesuai berdasarkan keputusan anda</h5>
-
             </div><br><br>
+            <a href="#modalPetunjuk" data-toggle="modal" onclick="$('#modalPetunjuk #formPetunjuk')">
+                <div class="btn btn-primary mb-3 btn-sm">Cara Penggunaan</div>
+            </a>
+            <div class="modal fade" id="modalPetunjuk">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            
+                            <h6>
+                                Cara Penggunaan :<br><br>
+                                1. Masukan Nilai Perbandingan Kriteria <br><br>
+                                2. Sebagai contoh anda lebih mementingkan kenyamanan dibandingkan harga, maka pilih kenyamanan <br><br>
+                                3. Lalu masukan skor kepentingan (contoh : kenyamanan lebih penting 5 skor dibandingkan harga) <br><br>
+                                4. Setelah memasukan skor kepentingan, maka pilih 3 produk yang ingin dibandingkan <br><br>
+                                5. Klik OK
+                            </h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <form id="formPesan" action="" method="post">
+                                <button class="btn btn-success btn-sm" data-dismiss="modal">OK</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <h4>Input Nilai Perbandingan</h4>
             <form method="post" action="<?php echo base_url() ?>ahp/filter_item_by_criteria">
                 <table class="table table-bordered">
@@ -87,7 +115,7 @@
                 <div class="form-group">
                     <label>Produk 2</label>
                     <select class="form-control" name="product_comp_2">
-                    <?php
+                        <?php
                         $no = 1;
                         foreach ($barang as $brg) : ?>
                             <option value=<?php echo $brg->id_brg ?>>
@@ -98,7 +126,7 @@
                 <div class="form-group">
                     <label>Produk 3</label>
                     <select class="form-control" name="product_comp_3">
-                    <?php
+                        <?php
                         $no = 1;
                         foreach ($barang as $brg) : ?>
                             <option value=<?php echo $brg->id_brg ?>>
@@ -107,7 +135,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-sm btn-primary mb-3">OK</button>
+                <button type="submit" class="btn btn-success mb-3">OK</button>
             </form>
 
         </div>
