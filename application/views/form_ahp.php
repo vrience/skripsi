@@ -13,7 +13,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            
+
                             <h6>
                                 Cara Penggunaan :<br><br>
                                 1. Masukan Nilai Perbandingan Kriteria <br><br>
@@ -98,8 +98,10 @@
                         </td>
                     </tr>
                 </table>
-
-
+                <?php if ($responce = $this->session->flashdata('Failed_CR')) : ?>
+                    <span style="color: red;">Konsistensi Ratio Kriteria >0.1</span>
+                <?php endif; ?>
+<br><br>
                 <h4>Input Produk Yang Ingin Dibandingkan</h4>
                 <div class="form-group">
                     <label>Produk 1</label>
