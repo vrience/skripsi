@@ -21,6 +21,8 @@
                                 3. Lalu masukan skor kepentingan (contoh : kenyamanan lebih penting 5 skor dibandingkan harga) <br><br>
                                 4. Setelah memasukan skor kepentingan, maka pilih 3 produk yang ingin dibandingkan <br><br>
                                 5. Klik OK
+
+                                note : jika kedua kriteria sama penting masukan nilai 1
                             </h6>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -98,8 +100,10 @@
                         </td>
                     </tr>
                 </table>
-                <?php if ($responce = $this->session->flashdata('Failed_CR')) : ?>
-                    <span style="color: red;">Konsistensi Ratio Kriteria >0.1</span>
+                <?php if ($response = $this->session->flashdata('Failed_CR')) : ?>
+                    <span style="color: red;">Consistency Ratio Kriteria > 0.1</span><br>
+                    <span style="color: red;">Consistency Ratio saat ini <?php echo (float)$nilai_cr ?></span><br>
+                    <span style="color: red;">Harap Mengubah Input Nilai Perbandingan</span>
                 <?php endif; ?>
 <br><br>
                 <h4>Input Produk Yang Ingin Dibandingkan</h4>

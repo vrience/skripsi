@@ -408,16 +408,16 @@ class Ahp extends CI_Controller
             // <button type="button" class="close" data-dismiss="alert" 
             // aria-label="Close"><span aria-hidden="true">&times;</span></button>
             // </div>');
-            $message="Consistency Ratio >=0.1";
-            $this->session->set_flashdata('Failed_CR',$message);
-            redirect(base_url('ahp/tambah_ahp'));
-            // $status_code=400;
-            // show_error($message, $status_code, $heading = 'An Error Was Encountered');
-            // $data['nilai_cr'] = $nilai_cr;
-            // $this->load->view('templates/header');
-            // $this->load->view('templates/sidebar');
-            // $this->load->view('hasil_ahp_fail', $data);
-            // $this->load->view('templates/footer');
+            $message = "Consistency Ratio > 0.1";
+            $data['nilai_cr'] = $this->get_cr($rating_filter);
+            $this->session->set_flashdata('Failed_CR', $message);
+            
+            $data['barang'] = $this->model_barang->tampil_data()->result();
+            $this->load->view('templates/header');
+            $this->load->view('templates/sidebar');
+            $this->load->view('form_ahp', $data);
+            $this->load->view('templates/footer');
+
         }
     }
     public function get_eigen_by_sum_rating($rating_filter)
